@@ -1,0 +1,6 @@
+tech.xirius.filter.jpa.EqualQueryBuilder
+tech.xirius.filter.jpa.GreaterThanQueryFilter
+tech.xirius.filter.jpa.InQueryBuilder
+tech.xirius.filter.jpa.IsNullQueryBuilder
+tech.xirius.filter.jpa.LessThanQueryBuilder
+tech.xirius.filter.jpa.MultiQueryBuilder

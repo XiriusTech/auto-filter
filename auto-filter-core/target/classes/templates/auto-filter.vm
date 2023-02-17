@@ -1,0 +1,31 @@
+#set($filter = "Filter")
+package $packageName;
+
+#foreach ($import in $imports)
+import $import.fullClassName;
+#end
+
+public class $className$filter#if ($filterInterface) implements $filterInterface#end {
+
+#foreach ($field in $fields)
+    private $field.finalFilterString $field.name = null;
+#end
+
+#foreach ($field in $fields)
+    public void set${display.capitalize($field.name)}($field.finalFilterString value) {
+        this.$field.name = value;
+    }
+
+    public $field.finalFilterString get${display.capitalize($field.name)}() {
+        return this.$field.name;
+    }
+
+#end
+
+#foreach ($field in $fields)
+#if ($field.isEnum() == true)
+    public static class $field.finalFilterString extends #if ($field.baseFilter.genericTypeCount > 0)$field.baseFilter.simpleClassName<$field.type.simpleClassName>#{else}$field.baseFilter.simpleClassName#end {
+    }
+#end
+#end
+}
