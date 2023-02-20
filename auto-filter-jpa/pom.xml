@@ -5,12 +5,47 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>auto-filter-jpa</artifactId>
     <name>auto-filter-jpa</name>
-
     <parent>
         <groupId>tech.xirius</groupId>
         <artifactId>auto-filter</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
+    <description>
+        Library used for  automatically generate consistent filters from entities of your project.
+        It also has a JPA integration that allows using the filters to perform queries to the database.
+    </description>
+    <url>http://xirius.tech/auto-filter</url>
+    <developers>
+        <developer>
+            <name>Camilo Narvaéz</name>
+            <email>camilo.narvaez@xirius.tech</email>
+            <organization>Xirius Tech</organization>
+            <organizationUrl>https://xirius.tech/</organizationUrl>
+        </developer>
+        <developer>
+            <name>David Muñoz</name>
+            <email>david@xirius.tech</email>
+            <organization>Xirius Tech</organization>
+            <organizationUrl>https://xirius.tech/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Xirius Tech</name>
+            <email>tecnologia@xirius.tech</email>
+            <organization>Xirius Tech</organization>
+            <organizationUrl>https://xirius.tech/</organizationUrl>
+        </developer>
+    <developers>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git://github.com/XiriusTech/auto-filter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:XiriusTech/auto-filter.git</developerConnection>
+        <url>https://github.com/XiriusTech/auto-filter</url>
+    </scm>
 
     <properties>
         <lombok.version>1.18.22</lombok.version>
