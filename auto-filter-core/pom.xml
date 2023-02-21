@@ -45,7 +45,7 @@
     <scm>
         <connection>scm:git:git://github.com/XiriusTech/auto-filter.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:XiriusTech/auto-filter.git</developerConnection>
-        <url>https://github.com/XiriusTech/auto-filter</url>
+        <url>https://github.com/XiriusTech/auto-filter/tree/main</url>
     </scm>
     <distributionManagement>
         <snapshotRepository>

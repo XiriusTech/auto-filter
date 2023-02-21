@@ -187,7 +187,7 @@ However, you are free to fork the project and perform your own changes there und
 
 
 ## 🚀 About Xirius Tech
-Xirius Tech is a company based in Colombia dedicated to the creation of web applications aimed to automate the processes that the client request. To do this we employ traditional technologies like Java and Spring Boot, and mix them with cutting edge advancements in Machine Learning to achieve the best results.
+Xirius Tech is a company dedicated to the creation of web applications aimed to automate the processes that the client request. To do this we employ traditional technologies like Java and Spring Boot, and mix them with cutting edge advancements in Machine Learning to achieve the best results.
 
 Visit us at [Xirius Tech](https://xirius.tech/) or send us an email directly to tecnologia@xirius.tech.
 
