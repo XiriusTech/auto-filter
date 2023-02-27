@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tech.xirius.filter.jpa;
+package tech.xirius.filter.jpa.builders;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,16 +24,21 @@ import javax.persistence.criteria.Predicate;
 import com.google.auto.service.AutoService;
 
 import tech.xirius.filter.filtering.Filter;
-import tech.xirius.filter.filtering.InFilter;
+import tech.xirius.filter.filtering.GreaterThanFilter;
+import tech.xirius.filter.filtering.SingleFilter;
+import tech.xirius.filter.jpa.QueryBuilderProcessor;
 
+/** 
+ * {@link QueryBuilder} for the {@link GreaterThanFilter}
+*/
 @AutoService(QueryBuilder.class)
-public class InQueryBuilder implements QueryBuilder {
+public class GreaterThanQueryFilter implements QueryBuilder {
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
-        if (filter instanceof InFilter) {
-            return Arrays.asList(x.in(((InFilter<T>)filter).getValue()));
+        if (filter instanceof GreaterThanFilter) {
+            return Arrays.asList(processor.getCriteriaBuilder().greaterThan(x, ((SingleFilter<T>) filter).getValue()));
         }
         return null;
     }

@@ -15,10 +15,26 @@
  */
 package tech.xirius.filter.auto.processors;
 
+/**
+ * Wrapper for important data of a Java Class
+ */
 public class ClassData {
+    /**
+     * The full name of a class, e.g. java.lang.String
+     */
     private String fullClassName;
+    /**
+     * The package of a class, e.g. java.lang is the package of java.lang.String
+     */
     private String packageName;
+    /**
+     * The simple name of a class, e.g. String is the package of java.lang.String
+     */
     private String simpleClassName;
+    /**
+     * Count of generic type parameters, e.g. for String is 0, for List<T> is 1 and
+     * for Map<K, V> is 2
+     */
     private Integer genericTypeCount;
 
     public ClassData(String fullClassName) {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tech.xirius.filter.jpa;
+package tech.xirius.filter.jpa.builders;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,15 +25,20 @@ import com.google.auto.service.AutoService;
 
 import tech.xirius.filter.filtering.EqualsFilter;
 import tech.xirius.filter.filtering.Filter;
+import tech.xirius.filter.filtering.SingleFilter;
+import tech.xirius.filter.jpa.QueryBuilderProcessor;
 
+/** 
+ * {@link QueryBuilder} for the {@link EqualsFilter}
+*/
 @AutoService(QueryBuilder.class)
-public class EqualQueryBuilder implements QueryBuilder {
+public class EqualsQueryBuilder implements QueryBuilder {
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
         if (filter instanceof EqualsFilter) {
-            return Arrays.asList(processor.getCriteriaBuilder().equal(x, ((EqualsFilter<T>) filter).getValue()));
+            return Arrays.asList(processor.getCriteriaBuilder().equal(x, ((SingleFilter<T>) filter).getValue()));
         }
         return null;
     }

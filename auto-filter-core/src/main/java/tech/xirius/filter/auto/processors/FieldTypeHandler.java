@@ -27,6 +27,9 @@ import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Types;
 
+/**
+ * Interprets the information contained in a {@link TypeMirror}
+ */
 public class FieldTypeHandler {
 
     public static boolean isFieldEnum(Element field) {

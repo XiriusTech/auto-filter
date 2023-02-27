@@ -18,6 +18,8 @@ package tech.xirius.filter.filtering;
 import java.util.Arrays;
 import java.util.List;
 
+import tech.xirius.filter.utils.FilterUtils;
+
 /**
  * Basic Filter with some common query conditions for a field.
  * In a REST/Web environment a petition using this filter could look like this:
@@ -31,7 +33,7 @@ import java.util.List;
  * <code>my/url?field3.subfield1.equals=2</code>
  * </p>
  * For more information on how to use a filter please refer to the full
- * documentation of the project
+ * documentation of the project.
  */
 public class BasicFilter<T> implements MultiFilter<T> {
 

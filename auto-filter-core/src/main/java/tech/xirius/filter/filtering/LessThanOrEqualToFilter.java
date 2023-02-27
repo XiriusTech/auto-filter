@@ -15,17 +15,17 @@
  */
 package tech.xirius.filter.filtering;
 
-import java.util.function.Supplier;
+public class LessThanOrEqualToFilter<T> implements SingleFilter<T> {
+    private T value = null;
 
-public class FilterUtils {
-    public static <T> T getWrapper(SingleFilter<T> filter) {
-        return filter != null ? filter.getValue() : null;
+    @Override
+    public T getValue() {
+        return value;
     }
 
-    public static <F extends SingleFilter<T>, T> F setWrapper(F filter, T value, Supplier<F> constructor) {
-        if (filter == null)
-            filter = constructor.get();
-        filter.setValue(value);
-        return (F) filter;
+    @Override
+    public void setValue(T value) {
+        this.value = value;
     }
+
 }

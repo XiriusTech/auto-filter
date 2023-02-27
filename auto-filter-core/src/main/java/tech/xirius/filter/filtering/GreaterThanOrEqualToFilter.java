@@ -15,7 +15,7 @@
  */
 package tech.xirius.filter.filtering;
 
-public class EqualsFilter<T> implements SingleFilter<T> {
+public class GreaterThanOrEqualToFilter<T> implements SingleFilter<T> {
     private T value = null;
 
     @Override

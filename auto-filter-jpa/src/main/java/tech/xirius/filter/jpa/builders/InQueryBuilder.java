@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tech.xirius.filter.jpa;
+package tech.xirius.filter.jpa.builders;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.criteria.Expression;
@@ -24,20 +24,21 @@ import javax.persistence.criteria.Predicate;
 import com.google.auto.service.AutoService;
 
 import tech.xirius.filter.filtering.Filter;
-import tech.xirius.filter.filtering.MultiFilter;
+import tech.xirius.filter.filtering.InFilter;
+import tech.xirius.filter.filtering.SingleFilter;
+import tech.xirius.filter.jpa.QueryBuilderProcessor;
 
+/** 
+ * {@link QueryBuilder} for the {@link InFilter}
+*/
 @AutoService(QueryBuilder.class)
-public class MultiQueryBuilder implements QueryBuilder {
+public class InQueryBuilder implements QueryBuilder {
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
-        if (filter instanceof MultiFilter) {
-            List<Predicate> predicates = new ArrayList<>();
-            for (Filter subFilter : ((MultiFilter<T>) filter).retrieveSubFilters()) {
-                predicates.addAll(processor.createPredicates(x, subFilter));
-            }
-            return predicates;
+        if (filter instanceof InFilter) {
+            return Arrays.asList(x.in(((SingleFilter<T>)filter).getValue()));
         }
         return null;
     }

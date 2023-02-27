@@ -15,11 +15,29 @@
  */
 package tech.xirius.filter.auto.processors;
 
+/**
+ * Wrapper for important data of a Class field
+ */
 public class FieldWrapper {
+    /**
+     * The name of the field
+     */
     private String name;
+    /**
+     * The type of the field
+     */
     private ClassData type;
+    /**
+     * The class of the filter of the field
+     */
     private ClassData baseFilter;
+    /**
+     * String that corresponds to the type declaration of the correspondig filter, e.g. BasicFilter<Long>
+     */
     private String finalFilterString;
+    /**
+     * Indicates wheter the field is an enum or not
+     */
     private boolean isEnum;
 
     public FieldWrapper(String name, ClassData type, ClassData baseFilter, boolean isEnum) {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tech.xirius.filter.jpa;
+package tech.xirius.filter.jpa.builders;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +25,11 @@ import com.google.auto.service.AutoService;
 
 import tech.xirius.filter.filtering.Filter;
 import tech.xirius.filter.filtering.IsNullFilter;
+import tech.xirius.filter.jpa.QueryBuilderProcessor;
 
+/** 
+ * {@link QueryBuilder} for the {@link IsNullFilter}
+*/
 @AutoService(QueryBuilder.class)
 public class IsNullQueryBuilder implements QueryBuilder {
     @Override

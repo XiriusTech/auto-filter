@@ -15,6 +15,9 @@
  */
 package tech.xirius.filter.filtering;
 
+/**
+ * Represents a generic Filter
+ */
 public interface Filter {
     
 }

@@ -17,7 +17,19 @@ package tech.xirius.filter.jpa;
 
 import java.util.ServiceLoader;
 
+import tech.xirius.filter.jpa.builders.QueryBuilder;
+
+/**
+ * Class responsible for loading all the registered {@link QueryBuilder}
+ */
 public class QueryBuilderLoader {
+    /**
+     * Loads all the registered {@link QueryBuilder} with the {@link ServiceLoader} into
+     * the {@link QueryBuilderProcessor}.
+     * For a {@code QueryBuilder} to be properly scanned by this method, it must be registered
+     * as a service, you can do this manually or automatically using tools such as
+     * <a href="https://github.com/google/auto/tree/main/service">Google AutoService</a>.
+     */
     public static void loadQueryBuilders() {
         ServiceLoader.load(QueryBuilder.class).forEach(QueryBuilderProcessor::registerQueryBuilder);
     }
