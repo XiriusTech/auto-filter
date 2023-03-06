@@ -25,7 +25,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import tech.xirius.filter.filtering.BasicFilter;
-import tech.xirius.filter.filtering.EqualsFilter;
 import tech.xirius.filter.filtering.InFilter;
 import tech.xirius.filter.filtering.RangeFilter;
 import tech.xirius.filter.jpa.AbstractQueryBuilderTest;
