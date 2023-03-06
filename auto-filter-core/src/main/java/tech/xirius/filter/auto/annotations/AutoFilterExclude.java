@@ -23,7 +23,9 @@ import java.lang.annotation.Target;
 /**
  * This annotation indicates that a field must be excluded
  * from the generated filter of an element annotated with
- * {@link AutoFilter}
+ * {@link AutoFilter}.
+ * This will override a {@link AutoFilterInclude} annotation if a field
+ * is annotated with both.
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.SOURCE)

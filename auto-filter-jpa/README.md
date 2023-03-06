@@ -5,7 +5,7 @@ This is a Java library that extends the [AutoFilter](https://github.com/XiriusTe
 
 ## Usage/Examples
 
-A full example of usage can be found [here.](https://github.com/XiriusTech/java-learning/tree/main/auto-filter)
+A full example of usage can be found [here.](https://github.com/XiriusTech/java-learning/tree/main/auto-filter-example)
 
 #### Creating queries
 Let's start with the following entity and filter created by Auto Filter:

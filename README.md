@@ -22,7 +22,7 @@ Nonetheless, the idea behind jHipster and its standard structure to generate que
 
 ## Usage/Examples
 
-A full example of usage can be found [here.](https://github.com/XiriusTech/java-learning/tree/main/auto-filter)
+A full example of usage can be found [here.](https://github.com/XiriusTech/java-learning/tree/main/auto-filter-example)
 
 #### Generating a filter
 To generate a filter you can use the @AutoFilter annotation:

@@ -16,6 +16,7 @@
         It also has a JPA integration that allows using the filters to perform queries to the database.
     </description>
     <url>http://xirius.tech/auto-filter</url>
+
     <developers>
         <developer>
             <name>Camilo Narvaéz</name>
@@ -36,17 +37,20 @@
             <organizationUrl>https://xirius.tech/</organizationUrl>
         </developer>
     </developers>
+
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
     <scm>
         <connection>scm:git:git://github.com/XiriusTech/auto-filter.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:XiriusTech/auto-filter.git</developerConnection>
         <url>https://github.com/XiriusTech/auto-filter/tree/main</url>
     </scm>
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -57,7 +61,47 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    <build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+            <version>${auto-service.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+            </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auto</groupId>
+            <artifactId>auto-common</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0-jre</version>
+        </dependency>
+        <!-- Test dependencies-->
+        <dependency>
+            <groupId>com.google.testing.compile</groupId>
+            <artifactId>compile-testing</artifactId>
+            <version>0.21.0</version>
+      </dependency>
+    </dependencies>
+
+    <properties>
+        <auto-service.version>1.0-rc2</auto-service.version>
+    </properties>
+
+        <build>
         <plugins>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
@@ -116,38 +160,5 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>com.google.auto.service</groupId>
-            <artifactId>auto-service</artifactId>
-            <version>${auto-service.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
-            </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-tools</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.auto</groupId>
-            <artifactId>auto-common</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>27.0-jre</version>
-        </dependency>
-    </dependencies>
-
-
-    <properties>
-        <auto-service.version>1.0-rc2</auto-service.version>
-    </properties>
 
 </project>

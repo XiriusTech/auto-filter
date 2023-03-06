@@ -20,6 +20,7 @@ import java.io.Writer;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -139,12 +140,19 @@ public class AutoFilterStep implements Step {
 
         context.put("filterInterface", filterInterface.getSimpleClassName());
         context.put("fields", fieldsWrapper);
-        context.put("imports", importTypes);
+        context.put("imports", orderImports(importTypes));
 
         JavaFileObject filterFile = this.processingEnv.getFiler().createSourceFile(filterClassName);
         try (Writer out = filterFile.openWriter()) {
             template.merge(context, out);
         }
+    }
+
+    private List<ClassData> orderImports(Set<ClassData> importTypes) {
+        List<ClassData> orderedImports = new ArrayList<>();
+        orderedImports.addAll(importTypes);
+        orderedImports.sort(Comparator.comparing(x -> x.getFullClassName()));
+        return orderedImports;
     }
 
     private Set<ClassData> cleanImports(Set<ClassData> imports, String packageName) {
