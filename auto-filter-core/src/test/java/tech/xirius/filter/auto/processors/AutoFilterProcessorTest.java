@@ -16,14 +16,16 @@
 package tech.xirius.filter.auto.processors;
 
 import static com.google.testing.compile.CompilationSubject.assertThat;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.testing.compile.Compilation;
 import com.google.testing.compile.Compiler;
 import com.google.testing.compile.JavaFileObjects;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 /**
  * Tests the {@link AutoFilterProcessor}

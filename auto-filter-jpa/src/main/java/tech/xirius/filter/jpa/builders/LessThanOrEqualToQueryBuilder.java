@@ -38,7 +38,8 @@ public class LessThanOrEqualToQueryBuilder implements QueryBuilder {
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
         if (filter instanceof LessThanOrEqualToFilter) {
-            return Arrays.asList(processor.getCriteriaBuilder().lessThanOrEqualTo(x, ((SingleFilter<T>) filter).getValue()));
+            T value = ((SingleFilter<T>) filter).getValue();
+            return value != null ? Arrays.asList(processor.getCriteriaBuilder().lessThanOrEqualTo(x, value)) : null;
         }
         return null;
     }

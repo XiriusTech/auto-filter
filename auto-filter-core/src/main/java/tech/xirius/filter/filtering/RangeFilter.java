@@ -15,6 +15,10 @@
  */
 package tech.xirius.filter.filtering;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import tech.xirius.filter.utils.FilterUtils;
 
 /**
@@ -57,5 +61,12 @@ public class RangeFilter<T> extends BasicFilter<T> {
 
     public void setGreaterThanOrEqualTo(T value) {
         this.greaterThanOrEqualTo = FilterUtils.setWrapper(greaterThanOrEqualTo, value, () -> new GreaterThanOrEqualToFilter<>());
+    }
+
+    @Override
+    public List<Filter> retrieveSubFilters() {
+        List<Filter> filters = new ArrayList<>(super.retrieveSubFilters());
+        filters.addAll(Arrays.asList(lessThan, lessThanOrEqualTo, greaterThan, greaterThanOrEqualTo));
+        return filters;
     }
 }

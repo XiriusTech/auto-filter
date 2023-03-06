@@ -32,13 +32,14 @@ import tech.xirius.filter.jpa.QueryBuilderProcessor;
  * {@link QueryBuilder} for the {@link GreaterThanFilter}
 */
 @AutoService(QueryBuilder.class)
-public class GreaterThanQueryFilter implements QueryBuilder {
+public class GreaterThanQueryBuilder implements QueryBuilder {
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
         if (filter instanceof GreaterThanFilter) {
-            return Arrays.asList(processor.getCriteriaBuilder().greaterThan(x, ((SingleFilter<T>) filter).getValue()));
+            T value = ((SingleFilter<T>) filter).getValue();
+            return value != null ? Arrays.asList(processor.getCriteriaBuilder().greaterThan(x, value)) : null;
         }
         return null;
     }

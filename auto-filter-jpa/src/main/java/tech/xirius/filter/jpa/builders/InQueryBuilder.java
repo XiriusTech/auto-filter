@@ -25,7 +25,6 @@ import com.google.auto.service.AutoService;
 
 import tech.xirius.filter.filtering.Filter;
 import tech.xirius.filter.filtering.InFilter;
-import tech.xirius.filter.filtering.SingleFilter;
 import tech.xirius.filter.jpa.QueryBuilderProcessor;
 
 /** 
@@ -38,7 +37,8 @@ public class InQueryBuilder implements QueryBuilder {
     public <T extends Comparable<? super T>> List<Predicate> createPredicates(
             QueryBuilderProcessor processor, Expression<T> x, Filter filter) {
         if (filter instanceof InFilter) {
-            return Arrays.asList(x.in(((SingleFilter<T>)filter).getValue()));
+            List<T> value = ((InFilter<T>) filter).getValue();
+            return value != null ? Arrays.asList(x.in((value))) : null;
         }
         return null;
     }
