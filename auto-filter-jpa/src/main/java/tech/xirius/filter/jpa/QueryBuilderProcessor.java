@@ -35,15 +35,15 @@ import tech.xirius.filter.jpa.builders.QueryBuilder;
  * JPA static metamodel like so:
  * <pre>
  * 
- * {@literal @Override} <b/>
- * public Predicate toPredicate(Root<Person> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
- *    List<Predicate> listP = new ArrayList<>();
+ * {@literal @Override} <b></b>
+ * public Predicate toPredicate(Root&lt;Person&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder criteriaBuilder) {
+ *    List&lt;Predicate&gt; listP = new ArrayList&lt;&gt;();
  *    QueryBuilderProcessor processor = new QueryBuilderProcessor(criteriaBuilder);
  *    listP.addAll(processor.createPredicates(root.get(Person_.id), filter.getId()));
  *    return criteriaBuilder.and(listP.toArray(new Predicate[0]));
  * }
  * 
- * </pre>>
+ * </pre>
  */
 public class QueryBuilderProcessor {
     private static Map<Class<?>, QueryBuilder> builders = new HashMap<>();

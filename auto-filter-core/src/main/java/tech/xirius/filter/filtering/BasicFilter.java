@@ -24,7 +24,7 @@ import tech.xirius.filter.utils.FilterUtils;
  * Basic Filter with some common query conditions for a field.
  * In a REST/Web environment a petition using this filter could look like this:
  * <p>
- * <code>my/url?field1.equals=2&field1.in=2,4&field2.isNull=false</code>
+ * <code>my/url?field1.equals=2&amp;field1.in=2,4&amp;field2.isNull=false</code>
  * </p>
  * However keep in mind that the petition structure can change depending on the
  * nesting levels of the filter, for example a filter of a field of a field of

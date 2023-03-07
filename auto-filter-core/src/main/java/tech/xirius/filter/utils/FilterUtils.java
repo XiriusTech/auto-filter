@@ -29,7 +29,7 @@ public class FilterUtils {
      * For example, for:
      * 
      * <pre>
-     * private EqualsFilter<T> equals;
+     * private EqualsFilter&lt;T&gt; equals;
      * 
      * public T getEquals() {
      *     return FilterUtils.getWrapper(equals);
@@ -53,15 +53,15 @@ public class FilterUtils {
     }
 
     /**
-     * Wrapper for a setter that masks the {@link SingleFilter#setValue()} of
+     * Wrapper for a setter that masks the {@link SingleFilter#setValue(Object)} of
      * the filter.
      * For example, for:
      * 
      * <pre>
-     * private EqualsFilter<T> equals;
+     * private EqualsFilter&lt;T&gt; equals;
      * 
      * public void setEquals(T value) {
-     *     this.equals = FilterUtils.setWrapper(equals, value, () -> new EqualsFilter<>());
+     *     this.equals = FilterUtils.setWrapper(equals, value, () -&gt; new EqualsFilter&lt;&gt;());
      * }
      * </pre>
      * 
