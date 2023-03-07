@@ -9,7 +9,7 @@
     <parent>
         <groupId>tech.xirius</groupId>
         <artifactId>auto-filter</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
     <description>
         Library used for  automatically generate consistent filters from entities of your project.
