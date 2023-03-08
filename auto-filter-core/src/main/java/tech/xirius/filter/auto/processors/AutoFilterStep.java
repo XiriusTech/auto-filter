@@ -170,8 +170,8 @@ public class AutoFilterStep implements Step {
             try {
                 classMethod.accept(annotation);
             } catch (MirroredTypeException mte) {
-                TypeElement type = this.processingEnv.getElementUtils().getTypeElement(mte.getTypeMirror().toString());
-                return type.asType().toString();
+                TypeElement type = this.processingEnv.getElementUtils().getTypeElement(FieldTypeHandler.cleanTypeName(mte.getTypeMirror()));
+                return FieldTypeHandler.cleanTypeName(type.asType());
             }
         }
         return null;

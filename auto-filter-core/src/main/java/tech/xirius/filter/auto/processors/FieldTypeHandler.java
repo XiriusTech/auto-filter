@@ -43,7 +43,7 @@ public class FieldTypeHandler {
     
     public static boolean isFieldTypeAdmitted(Element field, ProcessingEnvironment processingEnv) {
 
-        String fieldType = field.asType().toString();
+        String fieldType = cleanTypeName(field.asType());
         Set<String> otherAdmittedClasses = Set.of("java.lang.String", "java.math.BigDecimal");
         return isFieldTypePrimitive(field) || isFieldTypeBoxedPrimitive(field, processingEnv)
                 || otherAdmittedClasses.contains(fieldType) || isFieldEnum(field);
@@ -64,9 +64,16 @@ public class FieldTypeHandler {
     public static ClassData handleFieldType(TypeMirror type, ProcessingEnvironment processingEnv) {
         if (type instanceof PrimitiveType) {
             Types types = processingEnv.getTypeUtils();
-            return new ClassData(types.boxedClass((PrimitiveType) type).asType().toString());
+            return new ClassData(cleanTypeName(types.boxedClass((PrimitiveType) type).asType()));
         }
 
-        return new ClassData(type.toString());
+        return new ClassData(cleanTypeName(type));
+    }
+
+    public static String cleanTypeName(TypeMirror type) {
+        if (type == null)
+            return null;
+        String[] typeName = type.toString().split(" ");
+        return typeName.length > 0 ? typeName[typeName.length - 1] : null;
     }
 }

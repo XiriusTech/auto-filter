@@ -135,7 +135,7 @@ The filters created by AutoFilter generally rely on a set of reusable filters of
 - ```SingleFilter```: a filter that has a single condition to filter a single field
 - ```MultiFilter```: groups multiple SingleFilters
 
-One example of how this filters are used can be seen in the image:
+One example of how these filters are used can be seen in the image:
 ![Different Filters](https://user-images.githubusercontent.com/17957661/221467355-7a7366e2-a656-4606-a4b5-edccfdae4ac5.png)
 
 The green box represents a filter created with the @AutoFilter annotation, the orange boxes are MultiFilters and the Yellow boxes are SingleFilters.

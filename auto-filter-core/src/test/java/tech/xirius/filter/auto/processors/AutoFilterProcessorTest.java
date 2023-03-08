@@ -124,4 +124,16 @@ public class AutoFilterProcessorTest {
                         JavaFileObjects.forResource("test/CyclicalReferenceEntity2.java"));
         assertThat(compilation).failed();
     }
+
+    @Test
+    public void typeUseAnnotationFilter() {
+        Compilation compilation = Compiler.javac()
+                .withProcessors(new AutoFilterProcessor())
+                .compile(
+                        JavaFileObjects.forResource("test/EntityWithTypeUseAnnotation.java"),
+                        JavaFileObjects.forResource("test/TypeUseAnnotation.java"));
+        assertThat(compilation).succeededWithoutWarnings();
+        assertThat(compilation).generatedSourceFile("test/EntityWithTypeUseAnnotationFilter")
+                .hasSourceEquivalentTo(JavaFileObjects.forResource("test/results/EntityWithTypeUseAnnotationFilter.java"));
+    }
 }

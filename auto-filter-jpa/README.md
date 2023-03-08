@@ -87,7 +87,7 @@ If you don't use Spring you can still use the QueryBuilderProcessor, as it doesn
 
 A QueryBuilder is the responsible for processing a Filter and generating the corresponding JPA Criteria.
 
-A Filter may contain subfilters, for example, BasicFilter contains an EqualFilter, InFilter and IsNullFilter. Each one of this filters has its own QueryBuilder.
+A Filter may contain subfilters, for example, BasicFilter contains an EqualFilter, InFilter and IsNullFilter. Each one of these filters has its own QueryBuilder.
 
 Finally, as multiple QueryBuilders may intervene to create a full query, the QueryBuilderProcessor is used to coordinate the whole process, as seen in the image:
 
